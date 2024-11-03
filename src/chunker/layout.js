@@ -1369,7 +1369,7 @@ class Layout {
 		while (lastChild && lastChild.lastChild) {
 			if (!validNode(lastChild)) {
 				// Only get elements with refs
-				lastChild = lastChild.previousSibling;
+				lastChild = prevValidNode(lastChild);
 			} else if (!validNode(lastChild.lastChild)) {
 				// Deal with invalid dom items
 				lastChild = prevValidNode(lastChild.lastChild);
@@ -1385,7 +1385,7 @@ class Layout {
 				lastNodeIndex = indexOf(lastChild);
 				lastChild = lastChild.parentNode;
 			} else {
-				lastChild = lastChild.previousSibling;
+				lastChild = prevValidNode(lastChild);
 			}
 		}
 
